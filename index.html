@@ -1,79 +1,159 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MGE - Equipamentos de Academia</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>🏋️ MGE</h1>
-    <nav>
-      <a href="#">Início</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <section class="hero">
-    <h2>Equipamentos de Alta Performance</h2>
-    <p>Monte sua academia em casa com os melhores aparelhos!</p>
-  </section>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
 
-  <section id="produtos" class="produtos">
-    <h2>Catálogo de Produtos</h2>
-    <div class="grade-produtos">
-      <div class="produto">
-        <img src="https://via.placeholder.com/200x150" alt="Estação de Musculação" />
-        <h3>Estação de Musculação</h3>
-        <p><strong>R$ 2.499,00</strong></p>
-        <p>Compacta e completa, ideal para treinos de força em casa.</p>
-        <button onclick="adicionarCarrinho('Estação de Musculação')">Comprar</button>
-      </div>
-      <div class="produto">
-        <img src="https://via.placeholder.com/200x150" alt="Bicicleta Ergométrica" />
-        <h3>Bicicleta Ergométrica</h3>
-        <p><strong>R$ 1.299,00</strong></p>
-        <p>Pedale no conforto do seu lar com resistência ajustável e painel digital.</p>
-        <button onclick="adicionarCarrinho('Bicicleta Ergométrica')">Comprar</button>
-      </div>
-      <div class="produto">
-        <img src="https://via.placeholder.com/200x150" alt="Esteira Elétrica" />
-        <h3>Esteira Elétrica</h3>
-        <p><strong>R$ 3.899,00</strong></p>
-        <p>Alta performance para caminhadas e corridas com amortecimento.</p>
-        <button onclick="adicionarCarrinho('Esteira Elétrica')">Comprar</button>
-      </div>
-      <div class="produto">
-        <img src="https://via.placeholder.com/200x150" alt="Halteres Ajustáveis" />
-        <h3>Halteres Ajustáveis</h3>
-        <p><strong>R$ 499,00</strong></p>
-        <p>Um par de halteres com ajuste de carga de 2 a 24kg. Versatilidade total!</p>
-        <button onclick="adicionarCarrinho('Halteres Ajustáveis')">Comprar</button>
-      </div>
-    </div>
-  </section>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  <section id="sobre" class="sobre">
-    <h2>Sobre a MGE</h2>
-    <p>
-      A <strong>MGE</strong> é especializada na venda de equipamentos de academia de alto desempenho para residências, condomínios e estúdios de treinamento. 
-      Nossa missão é levar saúde, bem-estar e performance para todos, com produtos de qualidade, suporte técnico e entrega rápida em todo o Brasil.
-    </p>
-  </section>
+/* Cabeçalho */
+header {
+  background-color: #111;
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  <section id="contato" class="contato">
-    <h2>Fale Conosco</h2>
-    <p>📞 Telefone/WhatsApp: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
-    <p>📧 E-mail: <a href="mailto:contato@mgefitness.com.br">contato@mgefitness.com.br</a></p>
-  </section>
+header h1 {
+  font-size: 1.8em;
+}
 
-  <footer>
-    <p>&copy; 2025 MGE - Todos os direitos reservados</p>
-  </footer>
+nav a {
+  margin-left: 1.5em;
+  color: #ddd;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+nav a:hover {
+  color: #27ae60;
+}
+
+/* Hero / Banner */
+.hero {
+  background: url('https://images.unsplash.com/photo-1599058917212-dc9b80f4e303?fit=crop&w=1500&q=80') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 6em 1em;
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1.2em;
+}
+
+/* Seções */
+section {
+  padding: 4em 2em;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  color: #222;
+}
+
+/* Produtos */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.produto {
+  background: white;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+}
+
+.produto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.produto h3 {
+  margin: 1em 0 0.5em;
+  color: #111;
+}
+
+.produto p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+button {
+  margin-top: 1em;
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #219150;
+}
+
+/* Sobre e Contato */
+.sobre, .contato {
+  background-color: #fff;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 3em 2em;
+}
+
+.sobre p, .contato p {
+  font-size: 1.1em;
+  color: #444;
+}
+
+.contato a {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 1.5em 0;
+  font-size: 0.9em;
+}
